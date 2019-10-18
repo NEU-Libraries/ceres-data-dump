@@ -8,14 +8,16 @@
 # hardcoded distinction for dev environment vs live environment, where to dump the output
 
 # live server
-# pluginsDataDir=""
-# usersDataDir=""
+# topDir="" the parent directory of all the glorious CERES sites
+# pluginsDataDir="" where to dump that data about plugins, for each site
+# usersDataDir="" where to dump the data about users, for each site
 
 # local dev
+topDir="/var/www/html"
 pluginsDataDir="/var/www/html/wp-plugins"
-usersDataDir="/var/www/html/wp-users/"
+usersDataDir="/var/www/html/wp-users"
 
-# vm is for the different vm boxes that might be relevant to the localhost database settings
+# --vm option is for the different vm boxes that might be relevant to the localhost database settings
 # archives sites are on a different vm than other CERES sites, so we need to dump the results into
 # different directories based on where we're logged in to run the script
 # the appropriate directory(ies) must exist before running the script
@@ -45,7 +47,7 @@ done
 
 for d in */ ; do
      echo "$d"
-     cd /var/www/html/$d
+     cd $topDir/$d
      wp plugin list --format=csv > $pluginsDataDir/$vm/${d%/}-plugins.csv
      wp user list --format=csv > $usersDataDir/$vm/${d%/}-users.csv
 done
