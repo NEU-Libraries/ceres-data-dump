@@ -25,9 +25,10 @@ usersDataDir="/var/www/html/wp-users"
 # from Karl Yee in slack https://neu-lts.slack.com/archives/CH6TY5TT5/p1571409950052800 :
 
 # When using wp-cli to manage a WP site, you have to do the VM where the site’s db lives.  Even though most,  if not all the CERES site files are on a single NFS mount, their respective databases and vhost configs lives on one of two VMs.
-# The Archives department have their CERES db and vhost config files on nb9313.neu.edu.  So … you have to log into nb9313.neu.edu and run wp-cli from there to manage Archive’s CERES sites (e.g voices) .
+# The Archives department have their CERES db and vhost config files on nb9313.neu.edu.  So … you have to log into nb9313.neu.edu and run wp-cli from there to manage Archive’s CERES sites (e.g voices)
 
 # if it hits a non-WP site, or per above the db connection doesn't work, there will be a 0 byte output to be ignored when collating
+# the --vm option is there to dump data into different directories to sort out what's empty or not, depending on, yaknow, the vm's localhost db 
 
 # adapted from https://www.golinuxcloud.com/how-to-pass-multiple-parameters-in-shell-script-in-linux/  
 while [ ! -z "$1" ]; do
