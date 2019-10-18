@@ -4,15 +4,23 @@
 # each directory will get its own CSV file of data
 # that has to be manually collated into a spreadsheet
 # 'cuz library-tech people love them their spreadsheets
-pluginsDataDir="/var/www/html/wp-plugins"
-usersDataDir="/var/www/html/wp-users/"
+
+# hardcoded distinction for dev environment vs live environment, where to dump the output
+
+# live server
+pluginsDataDir=""
+usersDataDir=""
+
+# local dev
+# pluginsDataDir="/var/www/html/wp-plugins"
+# usersDataDir="/var/www/html/wp-users/"
 
 # vm is for the different vm boxes that might be relevant to the localhost database settings
 # archives sites are on a different vm than other CERES sites, so we need to dump the results into
 # different directories based on where we're logged in to run the script
 # the appropriate directory(ies) must exist before running the script
 
-# from Karl Yee in slack:
+# from Karl Yee in slack https://neu-lts.slack.com/archives/CH6TY5TT5/p1571409950052800 :
 
 # When using wp-cli to manage a WP site, you have to do the VM where the site’s db lives.  Even though most,  if not all the CERES site files are on a single NFS mount, their respective databases and vhost configs lives on one of two VMs.
 # The Archives department have their CERES db and vhost config files on nb9313.neu.edu.  So … you have to log into nb9313.neu.edu and run wp-cli from there to manage Archive’s CERES sites (e.g voices) .
@@ -36,7 +44,7 @@ done
 
 
 for d in */ ; do
-    echo "$d"
+     echo "$d"
      cd /var/www/html/$d
      wp plugin list --format=csv > $pluginsDataDir/$vm/${d%/}-plugins.csv
      wp user list --format=csv > $usersDataDir/$vm/${d%/}-users.csv
