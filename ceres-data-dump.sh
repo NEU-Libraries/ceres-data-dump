@@ -8,12 +8,12 @@
 # hardcoded distinction for dev environment vs live environment, where to dump the output
 
 # live server
-pluginsDataDir=""
-usersDataDir=""
+# pluginsDataDir=""
+# usersDataDir=""
 
 # local dev
-# pluginsDataDir="/var/www/html/wp-plugins"
-# usersDataDir="/var/www/html/wp-users/"
+pluginsDataDir="/var/www/html/wp-plugins"
+usersDataDir="/var/www/html/wp-users/"
 
 # vm is for the different vm boxes that might be relevant to the localhost database settings
 # archives sites are on a different vm than other CERES sites, so we need to dump the results into
