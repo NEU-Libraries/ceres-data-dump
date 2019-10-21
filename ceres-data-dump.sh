@@ -8,12 +8,12 @@
 # hardcoded distinction for dev environment vs live environment, where to dump the output
 
 # live server
-topDir="/var/www/html/library" # the parent directory of all the glorious CERES sites
+# topDir="/var/www/html/library" # the parent directory of all the glorious CERES sites
 pluginsDataDir="/home/syspatrickmj/ceres-wp-dumps/plugins" # where to dump the data about plugins, for each site
 usersDataDir="/home/syspatrickmj/ceres-wp-dumps/users" # where to dump the data about users, for each site
 
 # local dev
-# topDir="/var/www/html"
+topDir="/var/www/html"
 # pluginsDataDir="/var/www/html/wp-plugins"
 # usersDataDir="/var/www/html/wp-users"
 
@@ -46,10 +46,13 @@ shift
 done
 
 
-for d in */ ; do
+for d in $topDir/*/ ; do
+     cd $d     
+     baseDir=${PWD##*/}
      echo "$d"
-     cd $topDir/$d
-     wp plugin list --format=csv > $pluginsDataDir/$vm/${d%/}-plugins.csv
-     wp user list --format=csv > $usersDataDir/$vm/${d%/}-users.csv
+     echo $baseDir-plugins.csv
+
+     # wp plugin list --format=csv > $pluginsDataDir/$vm/${d%/}-plugins.csv
+     # wp user list --format=csv > $usersDataDir/$vm/${d%/}-users.csv
 done
 
