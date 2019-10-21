@@ -8,14 +8,14 @@
 # hardcoded distinction for dev environment vs live environment, where to dump the output
 
 # live server
-# topDir="/var/www/html/library" # the parent directory of all the glorious CERES sites
-# pluginsDataDir="/home/syspatrickmj/ceres-wp-dumps/plugins" # where to dump the data about plugins, for each site
-# usersDataDir="/home/syspatrickmj/ceres-wp-dumps/users" # where to dump the data about users, for each site
+topDir="/var/www/html/library" # the parent directory of all the glorious CERES sites
+pluginsDataDir="/home/syspatrickmj/ceres-wp-dumps/plugins" # where to dump the data about plugins, for each site
+usersDataDir="/home/syspatrickmj/ceres-wp-dumps/users" # where to dump the data about users, for each site
 
 # local dev
-topDir="/var/www/html"
-pluginsDataDir="/var/www/html/wp-plugins"
-usersDataDir="/var/www/html/wp-users"
+# topDir="/var/www/html"
+# pluginsDataDir="/var/www/html/wp-plugins"
+# usersDataDir="/var/www/html/wp-users"
 
 # --vm option is for the different vm boxes that might be relevant to the localhost database settings
 # archives sites are on a different vm than other CERES sites, so we need to dump the results into
