@@ -8,7 +8,7 @@
 # hardcoded distinction for dev environment vs live environment, where to dump the output
 
 # live server
-topDir="/var/www/html/library" # the parent directory of all the glorious CERES sites
+topDir="/mnt/wordpressdata" # the parent directory of all the glorious CERES sites
 pluginsDataDir="/home/syspatrickmj/ceres-wp-dumps/plugins" # where to dump the data about plugins, for each site
 usersDataDir="/home/syspatrickmj/ceres-wp-dumps/users" # where to dump the data about users, for each site
 
